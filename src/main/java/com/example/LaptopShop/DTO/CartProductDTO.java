@@ -4,7 +4,7 @@ public class CartProductDTO {
     private Long id;
     private Long productId;
     private String productName;
-    private Double productPrice;
+    private Long productPrice;
     private int warranty;
     private int quantity;
 
@@ -40,11 +40,11 @@ public class CartProductDTO {
         this.productName = productName;
     }
 
-    public Double getProductPrice() {
+    public Long getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(Double productPrice) {
+    public void setProductPrice(Long productPrice) {
         this.productPrice = productPrice;
     }
 

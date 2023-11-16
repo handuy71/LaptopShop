@@ -88,7 +88,6 @@ public class CartService {
     public void deleteCartProduct(User user, Long productId) {
         user.getCartProducts().removeIf(cartProduct ->
                 cartProduct.getProduct().getId().equals(productId));
-
         userRepository.save(user);
     }
 }

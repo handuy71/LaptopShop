@@ -31,8 +31,8 @@ public interface ProductRepository extends Neo4jRepository<Product, Long> {
             "AND ($OSId IS NULL OR id(o) = $OSId) " +
             "RETURN DISTINCT p,rBrand,rBattery,rCPU,rDisk,rOS,rRAM,rScreen,b,bt,c,d,o,r,s")
     List<Product> findProductsByFilter(@Param("name") String name,
-                                       @Param("minPrice") Double minPrice,
-                                       @Param("maxPrice") Double maxPrice,
+                                       @Param("minPrice") Long minPrice,
+                                       @Param("maxPrice") Long maxPrice,
                                        @Param("BrandId") Long BrandId,
                                        @Param("CPUId") Long CPUId,
                                        @Param("RAMId") Long RAMId,

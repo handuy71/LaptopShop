@@ -27,7 +27,7 @@ public class Order {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+7")
     private Date deliveryDate;
-    private double totalPrice;
+    private Long totalPrice;
     private String status;
     @Relationship(type = "INCLUDES", direction = Relationship.Direction.OUTGOING)
     private List<OrderProduct> orderProducts;
@@ -35,7 +35,7 @@ public class Order {
     private User user;
 
     public Order(Long id, String name, String phone, String address,
-                 Date createDate, Date shipDate, Date deliveryDate, double totalPrice,
+                 Date createDate, Date shipDate, Date deliveryDate, Long totalPrice,
                  String status, List<OrderProduct> orderProducts, User user) {
         this.id = id;
         this.name = name;
@@ -116,11 +116,11 @@ public class Order {
         this.deliveryDate = deliveryDate;
     }
 
-    public double getTotalPrice() {
+    public Long getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(Long totalPrice) {
         this.totalPrice = totalPrice;
     }
 

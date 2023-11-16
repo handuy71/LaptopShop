@@ -8,7 +8,7 @@ public class Product {
     @Id @GeneratedValue
     private Long id;
     private String name;
-    private double price;
+    private Long price;
     private int warranty;
     private String description;
     private int inventory;
@@ -48,11 +48,11 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

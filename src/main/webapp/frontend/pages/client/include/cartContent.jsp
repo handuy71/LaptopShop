@@ -57,10 +57,7 @@
 											</td>
 											<td><b>
 													<span class="total" id="item${cartProduct.productId}_total"
-														name="total_price">
-														<fmt:formatNumber
-															value="${cartProduct.productPrice*cartProduct.quantity}"
-															type="number" pattern="###0" />
+														name="total_price">${cartProduct.productPrice*cartProduct.quantity}
 													</span>
 													VNĐ</b></td>
 											<td class="cart-img">

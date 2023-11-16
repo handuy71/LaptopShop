@@ -38,7 +38,7 @@ public class ProductService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatusCode.valueOf(404)));
         return (ProductDTO) convertToDTO(product);
     }
-    public Page<ProductDTO> findProductsByFilter(int page, int size, String name, Double minPrice, Double maxPrice, Long BrandId, Long CPUId, Long RAMId, Long ScreenId, Long DiskId, Long BatteryId, Long OSId) {
+    public Page<ProductDTO> findProductsByFilter(int page, int size, String name, Long minPrice, Long maxPrice, Long BrandId, Long CPUId, Long RAMId, Long ScreenId, Long DiskId, Long BatteryId, Long OSId) {
         List<Product> products = productRepository.findProductsByFilter(name, minPrice, maxPrice, BrandId, CPUId, RAMId, ScreenId, DiskId, BatteryId, OSId);
 
         // Sort products by ID in descending order

@@ -11,7 +11,7 @@ public class OrderProduct {
     @GeneratedValue
     private Long id;
     private int quantity;
-    private double price;
+    private Long price;
 
     @TargetNode
     private Product product;
@@ -28,11 +28,11 @@ public class OrderProduct {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

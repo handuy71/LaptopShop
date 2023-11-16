@@ -53,9 +53,9 @@ public class OrderService {
                 })
                 .collect(Collectors.toList());
     }
-    private double calculateTotalPrice(List<CartProduct> cartProducts) {
+    private Long calculateTotalPrice(List<CartProduct> cartProducts) {
         return cartProducts.stream()
-                .mapToDouble(cartProduct -> cartProduct.getProduct().getPrice() * cartProduct.getQuantity())
+                .mapToLong(cartProduct -> cartProduct.getProduct().getPrice() * cartProduct.getQuantity())
                 .sum();
     }
 }

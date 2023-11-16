@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 public class ProductDTO {
     private Long id;
     private String name;
-    private double price;
+    private Long price;
     private int warranty;
     private int inventory;
     private String description;
@@ -28,11 +28,11 @@ public class ProductDTO {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
