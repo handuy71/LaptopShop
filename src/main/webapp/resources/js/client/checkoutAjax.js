@@ -9,7 +9,7 @@ function calculateOrder()
 	var element2 = document.getElementById("ordertotal");
 	
 	resConvert = accounting.formatMoney(res);
-	element2.innerHTML = resConvert+ " VND";
+	element2.innerHTML = resConvert+ " VNĐ";
 	var element3 = document.getElementById("tongGiaTri");
 	element3.setAttribute("value",res);
 	if(res == 0)

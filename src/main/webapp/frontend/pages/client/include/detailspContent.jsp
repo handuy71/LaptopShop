@@ -50,14 +50,12 @@
 											VNĐ
 										</span></h4>
 									<div class="action">
-										<button class="add-to-cart btn btn-warning" type="button">
-											<span class="glyphicon glyphicon-shopping-cart pull-center"></span> Giỏ
-											hàng</button>
+									<button onClick="addToCart(${product.id})" class="btn btn-warning"><span class= "glyphicon glyphicon-shopping-cart pull-center"></span> Giỏ hàng</button>
 									</div>
 								</div>
-							</div>							
+							</div>
 						</div>
-						
+
 					</div>
 					<div class="section group">
 						<h4 style="font-weight: bold;font-size: 40px;">Sản phẩm tương tự</h4>
@@ -96,12 +94,15 @@
 									</table>
 								</div>
 								<h3>
-									<fmt:formatNumber value="${recommend.price}" type="number"
-										pattern="#,##0" /> VNĐ
+									<fmt:formatNumber value="${recommend.price}" type="number" pattern="#,##0" /> VNĐ
 								</h3>
-								<button onClick="addToCart(${recommend.id})" class="btn btn-warning">
-									<span class="glyphicon glyphicon-shopping-cart pull-center">
-									</span> Giỏ hàng</button>
+								<form action="<%=request.getContextPath()%>/add-to-cart/${recommend.id}"
+									method="get">
+									<button type="submit" class="btn btn-warning">
+										<span class="glyphicon glyphicon-shopping-cart pull-center"></span>
+										Giỏ hàng
+									</button>
+								</form>
 								<h3></h3>
 							</div>
 						</c:forEach>
@@ -110,3 +111,4 @@
 			</body>
 
 			<script src="<c:url value='/js/client/detailspAjax.js'/>"></script>
+			<script src="<c:url value='/js/client/cartAjax.js'/>" ></script>

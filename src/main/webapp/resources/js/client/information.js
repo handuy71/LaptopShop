@@ -1,14 +1,20 @@
 function changeInformation()
 {
+    var email = document.getElementById("email").value;
 	var name = document.getElementById("name").value;
 	var phone = document.getElementById("phone").value;
 	var address = document.getElementById("address").value;
 	var flag = 0;
+
 	if(name.length == 0)
 	{
 		flag = 1;
 		document.getElementById("nameWarning").innerHTML = "Tên không được để trống";	
 	}
+	if(email.length == 0){
+        		flag = 1;
+        		document.getElementById("emailWarning").innerHTML = "Địa chỉ email không được để trống";
+        	}
 	if(phone.length == 0)
 	{
 		flag = 1;
@@ -30,15 +36,16 @@ function changeInformation()
 		return;
 	}
 	var send = new Object();
-	send.hoTen = name;
-	send.soDienThoai = phone;
-	send.diaChi = address;
+	send.email = email;
+	send.name = name;
+	send.phone = phone;
+	send.address = address;
 	var data = JSON.stringify(send)
 	$.ajax({
 			type: "POST",	
 			data: data,	
 			contentType : "application/json",
-			url: "http://localhost:8080/laptopshop/updateInfo",
+			url: "http://localhost:8080/api/account/updateInfo",
 			success: function(result){
 				alert("Thông tin đã cập nhật");
 				window.location.href = "/laptopshop/account";

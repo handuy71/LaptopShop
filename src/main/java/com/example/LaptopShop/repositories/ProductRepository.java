@@ -51,6 +51,6 @@ public interface ProductRepository extends Neo4jRepository<Product, Long> {
             "MATCH (relatedNode)-[relatedTo:HAS_BRAND|HAS_CPU|HAS_RAM|HAS_SCREEN|HAS_DISK|HAS_BATTERY|HAS_OS]-(p2) " +
             "RETURN p2, relationships, relatedNodes, COLLECT(relatedNode) AS allRelatedNodes, COLLECT(relatedTo) AS allRelationships")
     List<Product> findRelatedProducts(@Param("productId") Long productId);
-
+    Product getById(Long id);
 
 }

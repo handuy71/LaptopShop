@@ -52,7 +52,7 @@
 				<c:if test="${pageContext.request.userPrincipal.name != null}">
 
 					<ul>
-						<li>Xin chào: ${loggedInUser.hoTen}</li>
+						<li>Xin chào: ${loggedInUser.name}</li>
 
 
 						<!-- 	<li><a href="<%=request.getContextPath()%>/checkout"">Thanh toán</a></li> -->

@@ -56,7 +56,7 @@
 						<div class="section group">
 							</c:if>
 							<div class="grid_1_of_4 images_1_of_4 products-info">
-								<a href="sp=${product.id}">
+								<a href="product=${product.id}">
 									<img style="width: 300px; height: 238px" src="img/${product.id}.png">
 									<h3 style="font-weight: bold;">${product.name}</h3>
 								</a>
@@ -88,10 +88,8 @@
 								</div>
 								<h3>
 									<fmt:formatNumber value="${product.price}" type="number" pattern="#,##0" /> VNĐ
-								</h3>
-								<button onClick="addToCart(${product.id})" class="btn btn-warning">
-									<span class="glyphicon glyphicon-shopping-cart pull-center">
-									</span> Giỏ hàng</button>
+								</h3><%=request.getContextPath()%>
+                                    <button onClick="addToCart(${product.id})" class="btn btn-warning"><span class= "glyphicon glyphicon-shopping-cart pull-center"></span> Giỏ hàng</button>
 								<h3></h3>
 							</div>
 							<c:if test="${loop.last}">
@@ -242,3 +240,4 @@
 				// Call the prefillForm function when the page loads
 				window.onload = prefillForm;
 			</script>
+			<script src="<c:url value='/js/client/cartAjax.js'/>" ></script>
