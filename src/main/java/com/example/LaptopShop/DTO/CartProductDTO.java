@@ -1,5 +1,7 @@
 package com.example.LaptopShop.DTO;
 
+import java.util.List;
+
 public class CartProductDTO {
     private Long id;
     private Long productId;
@@ -7,6 +9,15 @@ public class CartProductDTO {
     private Long productPrice;
     private int warranty;
     private int quantity;
+    private List<String> gifts;
+
+    public List<String> getGifts() {
+        return gifts;
+    }
+
+    public void setGifts(List<String> gifts) {
+        this.gifts = gifts;
+    }
 
     public int getQuantity() {
         return quantity;

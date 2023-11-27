@@ -67,6 +67,7 @@ public class CartService {
             cartProductDTO.setProductPrice(cartProduct.getProduct().getPrice());
             cartProductDTO.setWarranty(cartProduct.getProduct().getWarranty());
             cartProductDTO.setQuantity(cartProduct.getQuantity());
+            cartProductDTO.setGifts(cartProduct.getProduct().getGiftNames());
             cartProductDTOs.add(cartProductDTO);
         }
 

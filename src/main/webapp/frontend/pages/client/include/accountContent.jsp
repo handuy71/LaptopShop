@@ -80,7 +80,14 @@
                                                 <p>Số lượng: ${product.quantity}</p>
                                                 <hr>
                                                 <c:set var="total" value="${total + product.quantity*product.price}" />
-
+                                                <c:forEach var="gift" items="${product.product.gifts}">
+                                                    <c:if test="${gift.inventory ne 0}">
+                                                        <p>
+                                                            ${gift.name}<br>
+                                                        </p>
+                                                        <hr>
+                                                    </c:if> 
+                                                </c:forEach>
                                             </c:forEach>
                                         </td>
 
@@ -115,23 +122,22 @@
                                     <div class="form-group ">
                                         <label style="line-height: 2">Họ tên khách hàng*:</label><br>
                                         <label id="nameWarning" style="color: red"></label>
-                                        <input class="form-control" id="name" name="name" type="text" >
+                                        <input class="form-control" id="name" name="name" type="text">
                                     </div>
                                     <div class="form-group ">
                                         <label style="line-height: 2">Địa chỉ email*:</label><br>
                                         <label id="emailWarning" style="color: red"></label> <input class="form-control"
-                                            id="email" name="email" type="email" >
+                                            id="email" name="email" type="email">
                                     </div>
                                     <div class="form-group ">
                                         <label style="line-height: 2">Số điện thoại*:</label><br> <label
                                             id="phoneWarning" style="color: red"></label> <input class="form-control"
-                                            id="phone" name="phone" type="text" >
+                                            id="phone" name="phone" type="text">
                                     </div>
                                     <div class="form-group">
                                         <label style="line-height: 2">Địa chỉ*:</label><br> <label id="addressWarning"
                                             style="color: red"></label>
-                                        <input class="form-control" id="address" name="address" type="text"
-                                            >
+                                        <input class="form-control" id="address" name="address" type="text">
                                     </div>
 
                                 </div>
@@ -164,8 +170,8 @@
                                 <div class="modal-body">
                                     <div class="form-group ">
                                         <label style="line-height: 2">Mật khẩu cũ*:</label><br> <label id="oldWarning"
-                                            style="color: red"></label> <input class="form-control" id="oldPassword" name="oldPassword"
-                                            type="password">
+                                            style="color: red"></label> <input class="form-control" id="oldPassword"
+                                            name="oldPassword" type="password">
                                     </div>
                                     <div class="form-group ">
                                         <label style="line-height: 2">Mật khẩu mới*:</label><br> <label id="new1Warning"
@@ -179,7 +185,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>                               
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
                                     <input type="submit" class="btn btn-primary" value="Đổi mật khẩu">
                                 </div>
                             </form>

@@ -45,11 +45,11 @@ public class TestAPI {
         return (User) request.getSession().getAttribute("loggedInUser");
     }
 
-    //    @GetMapping("/{id}")
-//    public ResponseEntity<ProductDTO> productDetail(@PathVariable Long id){
-//        ProductDTO productDTO = productService.getProductById(id);
-//        return new ResponseEntity<>(productDTO,HttpStatus.OK);
-//    }
+        @GetMapping("/{id}")
+    public ResponseEntity<ProductDTO> productDetail(@PathVariable Long id){
+        ProductDTO productDTO = productService.getProductById(id);
+        return new ResponseEntity<>(productDTO,HttpStatus.OK);
+    }
     @GetMapping("/customer")
     public String customer() {
         return "Hello Customer";

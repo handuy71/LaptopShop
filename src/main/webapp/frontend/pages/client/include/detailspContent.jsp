@@ -49,8 +49,22 @@
 											<fmt:formatNumber value="${product.price}" type="number" pattern="#,##0" />
 											VNĐ
 										</span></h4>
+									<c:if test="${not empty product.gifts}">
+										<p class="product-description">
+											Quà tặng khuyến mãi:
+											<c:forEach var="gift" items="${product.gifts}">
+												<c:if test="${gift.inventory ne 0}">
+													<p>${gift.name}</p>
+												</c:if>
+											</c:forEach>
+										</p>
+									</c:if>
+
+
 									<div class="action">
-									<button onClick="addToCart(${product.id})" class="btn btn-warning"><span class= "glyphicon glyphicon-shopping-cart pull-center"></span> Giỏ hàng</button>
+										<button onClick="addToCart(${product.id})" class="btn btn-warning"><span
+												class="glyphicon glyphicon-shopping-cart pull-center"></span> Giỏ
+											hàng</button>
 									</div>
 								</div>
 							</div>
@@ -61,7 +75,7 @@
 						<h4 style="font-weight: bold;font-size: 40px;">Sản phẩm tương tự</h4>
 						<c:forEach items="${recommends}" var="recommend" varStatus="loop">
 							<div class="grid_1_of_4 images_1_of_4 products-info">
-								<a href="sp=${recommend.id}">
+								<a href="product=${recommend.id}">
 									<img style="width: 300px; height: 238px" src="img/${recommend.id}.png">
 									<h3 style="font-weight: bold;">${recommend.name}</h3>
 								</a>
@@ -96,8 +110,7 @@
 								<h3>
 									<fmt:formatNumber value="${recommend.price}" type="number" pattern="#,##0" /> VNĐ
 								</h3>
-								<form action="<%=request.getContextPath()%>/add-to-cart/${recommend.id}"
-									method="get">
+								<form action="<%=request.getContextPath()%>/add-to-cart/${recommend.id}" method="get">
 									<button type="submit" class="btn btn-warning">
 										<span class="glyphicon glyphicon-shopping-cart pull-center"></span>
 										Giỏ hàng
@@ -111,4 +124,4 @@
 			</body>
 
 			<script src="<c:url value='/js/client/detailspAjax.js'/>"></script>
-			<script src="<c:url value='/js/client/cartAjax.js'/>" ></script>
+			<script src="<c:url value='/js/client/cartAjax.js'/>"></script>

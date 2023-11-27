@@ -4,6 +4,7 @@ import com.example.LaptopShop.models.*;
 import com.example.LaptopShop.models.components.*;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 public class ProductDTO {
     private Long id;
@@ -19,6 +20,15 @@ public class ProductDTO {
     private Disk disk;
     private Battery battery;
     private OS os;
+    private List<Gift> gifts;
+
+    public List<Gift> getGifts() {
+        return gifts;
+    }
+
+    public void setGifts(List<Gift> gifts) {
+        this.gifts = gifts;
+    }
 
     public String getName() {
         return name;

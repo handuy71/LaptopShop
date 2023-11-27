@@ -3,6 +3,10 @@ package com.example.LaptopShop.models;
 import com.example.LaptopShop.models.components.*;
 import org.springframework.data.neo4j.core.schema.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Node
 public class Product {
     @Id @GeneratedValue
@@ -32,6 +36,8 @@ public class Product {
 
     @Relationship(type = "HAS_OS", direction = Relationship.Direction.OUTGOING)
     private OS os;
+    @Relationship(type = "HAS_GIFTS", direction = Relationship.Direction.OUTGOING)
+    private List<Gift> gifts;
 
     public Product() {
     }
@@ -134,5 +140,22 @@ public class Product {
 
     public void setOs(OS os) {
         this.os = os;
+    }
+
+    public List<Gift> getGifts() {
+        return gifts.stream()
+                .filter(gift -> gift.getInventory() > 0)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getGiftNames() {
+        return gifts.stream()
+                .filter(gift -> gift.getInventory() > 0)
+                .map(Gift::getName)
+                .collect(Collectors.toList());
+    }
+
+    public void setGifts(List<Gift> gifts) {
+        this.gifts = gifts;
     }
 }

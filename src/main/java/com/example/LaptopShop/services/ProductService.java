@@ -92,6 +92,7 @@ public class ProductService {
         productDTO.setDisk(product.getDisk());
         productDTO.setBattery(product.getBattery());
         productDTO.setOs(product.getOs());
+        productDTO.setGifts(product.getGifts());
 
         return productDTO;
     }
