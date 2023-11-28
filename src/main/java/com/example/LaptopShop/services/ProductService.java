@@ -25,10 +25,7 @@ public class ProductService {
     public Page<ProductDTO> getAllProductsPaginated(int page, int size) {
         Sort sort = Sort.by(Sort.Order.desc("id"));
 
-        // Create a PageRequest with sorting applied
         PageRequest pageRequest = PageRequest.of(page, size, sort);
-
-        // Fetch the products from the repository with sorting applied
         Page<Product> productsPage = productRepository.findAll(pageRequest);
 
         return productsPage.map(product -> convertToDTO(product));
@@ -41,12 +38,10 @@ public class ProductService {
     public Page<ProductDTO> findProductsByFilter(int page, int size, String name, Long minPrice, Long maxPrice, Long BrandId, Long CPUId, Long RAMId, Long ScreenId, Long DiskId, Long BatteryId, Long OSId) {
         List<Product> products = productRepository.findProductsByFilter(name, minPrice, maxPrice, BrandId, CPUId, RAMId, ScreenId, DiskId, BatteryId, OSId);
 
-        // Sort products by ID in descending order
         products.sort(Comparator.comparing(Product::getId).reversed());
 
         int totalProducts = products.size();
 
-        // Calculate the total pages
         int totalPages = (int) Math.ceil((double) totalProducts / size);
 
         int start = page * size;
@@ -84,7 +79,6 @@ public class ProductService {
         productDTO.setInventory(product.getInventory());
         productDTO.setDescription(product.getDescription());
 
-        // Convert and set the components
         productDTO.setBrand(product.getBrand());
         productDTO.setCpu(product.getCpu());
         productDTO.setRam(product.getRam());

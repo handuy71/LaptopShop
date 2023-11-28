@@ -32,17 +32,14 @@ public class SecurityConfig {
                 .userDetailsService(neoUserDetailsService)
                 .formLogin(form -> form
                         .loginPage("/login")
-//                        .permitAll()
                         .usernameParameter("username")
                         .passwordParameter("password")
-//                        .successForwardUrl("/product")
                         .defaultSuccessUrl("/product")
                         .failureUrl("/login?error")
                 )
-//                .formLogin(Customizer.withDefaults())
                 .logout(logout -> logout
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // Define a custom logout URL
-                        .logoutSuccessUrl("/login?logout") // Custom logout success handler
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .logoutSuccessUrl("/login?logout")
                 )
                 .rememberMe(remember -> remember
                         .key("uniqueAndSecret")

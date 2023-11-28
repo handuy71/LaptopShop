@@ -32,28 +32,19 @@ public class UserService {
     ;
 
     public User registerUser(User user) {
-        // Check if username is already taken
         if (userRepository.findByUsername(user.getUsername()) != null) {
             throw new IllegalArgumentException("Tên đăng nhập đã tồn tại");
         }
 
-        // Check if email is already taken
         if (userRepository.findByEmail(user.getEmail()) != null) {
             throw new IllegalArgumentException("Email đã tồn tại");
         }
 
-        // Check if passwords match
         if (!user.getPassword().equals(user.getConfirmPassword())) {
             throw new IllegalArgumentException("Mật khẩu không khớp");
         }
-
-        // Set default role "ROLE_CUSTOMER"
         user.setRoles("ROLE_CUSTOMER");
-
-        // Encode password before saving to the database
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        // Save the user
         return userRepository.save(user);
     }
 
@@ -78,6 +69,6 @@ public class UserService {
             userRepository.save(user);
             return true;
         }
-        return false; // or throw an exception indicating failure
+        return false;
     }
 }

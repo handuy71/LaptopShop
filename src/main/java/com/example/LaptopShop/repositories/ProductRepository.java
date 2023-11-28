@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface ProductRepository extends Neo4jRepository<Product, Long> {
-    //Find product by name containing keyword
     @Query("MATCH (p:Product)-[rBrand:HAS_BRAND]->(b:Brand),\n" +
             "(p)-[rBattery:HAS_BATTERY]->(bt:Battery),\n" +
             "(p)-[rCPU:HAS_CPU]->(c:CPU),\n" +

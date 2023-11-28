@@ -26,12 +26,6 @@ public class NeoUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("User with username " + username + " not found");
         }
-
-//        Set<GrantedAuthority> grantedAuthorities = (Set<GrantedAuthority>) user.getAuthorities();
-//        Set<VaiTro> roles = user.getAuthorities();
-//        for (VaiTro role : roles) {
-//            grantedAuthorities.add(new SimpleGrantedAuthority(role.getTenVaiTro()));
-//        }
         return user;
     }
 }
